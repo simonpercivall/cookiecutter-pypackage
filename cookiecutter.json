@@ -1,11 +1,10 @@
 {
-	"full_name": "Audrey Roy",
-	"email": "audreyr@gmail.com",
+	"full_name": "Anon Dev",
+	"email": "anon.dev@domain.com",
 	"vcs_url": "",
 	"project_name": "Python Boilerplate",
 	"package_name": "boilerplate",
 	"project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
-	"release_date": "2014-01-11",
 	"year": "2014",
 	"version": "0.1.0"
 }

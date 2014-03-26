@@ -1,21 +1,29 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
-import sys
+import re
 from setuptools import setup, find_packages
 
 readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
+
 def read_reqs(name):
     with open(os.path.join(os.path.dirname(__file__), name)) as f:
         return [line for line in f.read().split('\n') if line and not line.strip().startswith('#')]
 
-install_requires = read_reqs('requirements.txt')
+
+def read_version():
+    with open(os.path.join('lib', '{{ cookiecutter.package_name}}', '__init__.py')) as f:
+        m = re.search(r'''__version__\s*=\s*['"]([^'"]*)['"]''', f.read())
+        if m:
+            return m.group(1)
+        raise ValueError("couldn't find version")
+
 
 setup(
     name='{{ cookiecutter.package_name }}',
-    version='{{ cookiecutter.version }}',
+    version=read_version(),
     description='{{ cookiecutter.project_short_description }}',
     long_description=readme + '\n\n' + history,
     author='{{ cookiecutter.full_name }}',
@@ -24,7 +32,7 @@ setup(
     packages=find_packages('lib'),
     package_dir={'': 'lib'},
     include_package_data=True,
-    install_requires=install_requires,
+    install_requires=read_reqs('requirements.txt'),
     license="BSD",
     zip_safe=False,
     keywords='{{ cookiecutter.package_name }}',
