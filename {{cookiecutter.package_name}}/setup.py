@@ -24,7 +24,7 @@ setup(
     long_description=readme + '\n\n' + history,
     author='{{ cookiecutter.full_name }}',
     author_email='{{ cookiecutter.email }}',
-    url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.package_name }}',
+    url='{{ cookiecutter.vcs_url }}',
     packages=[
         '{{ cookiecutter.package_name }}',
     ],
