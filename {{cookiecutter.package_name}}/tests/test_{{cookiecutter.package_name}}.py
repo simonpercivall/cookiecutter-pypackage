@@ -10,7 +10,7 @@ Tests for `{{ cookiecutter.package_name }}` module.
 
 import unittest
 
-from {{ cookiecutter.package_name }} import {{ cookiecutter.package_name }}
+from {{ cookiecutter.package_name }} import *
 
 
 class Test{{ cookiecutter.package_name|capitalize }}(unittest.TestCase):

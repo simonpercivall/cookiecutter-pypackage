@@ -4,8 +4,7 @@ help:
 	@echo "clean-build - remove build artifacts"
 	@echo "clean-pyc - remove Python file artifacts"
 	@echo "lint - check style with flake8"
-	@echo "test - run tests quickly with the default Python"
-	@echo "test-all - run tests on every Python version with tox"
+	@echo "test - run tests"
 	@echo "coverage - check code coverage quickly with the default Python"
 	@echo "docs - generate Sphinx HTML documentation, including API docs"
 	@echo "release - package and upload a release"
@@ -25,33 +24,19 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 
 lint:
-	flake8 {{ cookiecutter.package_name }} tests
+	flake8 lib/{{ cookiecutter.package_name }} tests
 
 test:
-	python setup.py test
-
-test-all:
 	tox
 
 coverage:
-	coverage run --source {{ cookiecutter.package_name }} setup.py test
-	coverage report -m
-	coverage html
-	open htmlcov/index.html
+	tox -e coverage
 
 docs:
-	rm -f docs/{{ cookiecutter.package_name }}.rst
-	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ {{ cookiecutter.package_name }}
-	$(MAKE) -C docs clean
-	$(MAKE) -C docs html
-	open docs/_build/html/index.html
-
-release: clean
-	python setup.py sdist upload
-	python setup.py bdist_wheel upload
+	tox -e docs
 
 dist: clean
 	python setup.py sdist
 	python setup.py bdist_wheel
+	python setup.py bdist_egg
 	ls -l dist
