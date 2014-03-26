@@ -1,9 +1,14 @@
-.. :changelog:
+=========
+Changelog
+=========
 
-History
--------
+Here's the recent changes to {{ cookiecutter.project_name }}.
 
-{{ cookiecutter.version }} ({{ cookiecutter.release_date }})
-++++++++++++++++++
+.. changelog::
+    :version: dev
+    :released: Ongoing
 
-* First release on PyPI.
+    .. change::
+        :tags: docs
+
+        Updated CHANGES.
