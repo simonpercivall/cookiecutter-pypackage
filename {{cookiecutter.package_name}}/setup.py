@@ -18,23 +18,23 @@ readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
-    name='{{ cookiecutter.repo_name }}',
+    name='{{ cookiecutter.package_name }}',
     version='{{ cookiecutter.version }}',
     description='{{ cookiecutter.project_short_description }}',
     long_description=readme + '\n\n' + history,
     author='{{ cookiecutter.full_name }}',
     author_email='{{ cookiecutter.email }}',
-    url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}',
+    url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.package_name }}',
     packages=[
-        '{{ cookiecutter.repo_name }}',
+        '{{ cookiecutter.package_name }}',
     ],
-    package_dir={'{{ cookiecutter.repo_name }}': '{{ cookiecutter.repo_name }}'},
+    package_dir={'{{ cookiecutter.package_name }}': '{{ cookiecutter.package_name }}'},
     include_package_data=True,
     install_requires=[
     ],
     license="BSD",
     zip_safe=False,
-    keywords='{{ cookiecutter.repo_name }}',
+    keywords='{{ cookiecutter.package_name }}',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
