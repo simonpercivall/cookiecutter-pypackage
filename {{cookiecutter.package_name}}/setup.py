@@ -1,21 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 import os
 import sys
-
-
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
-
-if sys.argv[-1] == 'publish':
-    os.system('python setup.py sdist upload')
-    sys.exit()
+from setuptools import setup, find_packages
 
 readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
+
+def read_reqs(name):
+    with open(os.path.join(os.path.dirname(__file__), name)) as f:
+        return [line for line in f.read().split('\n') if line and not line.strip().startswith('#')]
+
+install_requires = read_reqs('requirements.txt')
 
 setup(
     name='{{ cookiecutter.package_name }}',
@@ -25,13 +21,10 @@ setup(
     author='{{ cookiecutter.full_name }}',
     author_email='{{ cookiecutter.email }}',
     url='{{ cookiecutter.vcs_url }}',
-    packages=[
-        '{{ cookiecutter.package_name }}',
-    ],
-    package_dir={'{{ cookiecutter.package_name }}': '{{ cookiecutter.package_name }}'},
+    packages=find_packages('lib'),
+    package_dir={'': 'lib'},
     include_package_data=True,
-    install_requires=[
-    ],
+    install_requires=install_requires,
     license="BSD",
     zip_safe=False,
     keywords='{{ cookiecutter.package_name }}',
