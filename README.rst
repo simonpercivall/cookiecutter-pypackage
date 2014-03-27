@@ -15,6 +15,12 @@ Forked from `audreyr/cookiecutter-pypackage`_.
 Additions and changes
 ---------------------
 
+* Handle namespace packages.
+* Be less github centric.
+* Use the ReadTheDocs sphinx theme
+* Simplify the template a bit
+* Use tox for more actions, like building docs and coverage.
+
 See `github comparison view`_.
 
 Usage
