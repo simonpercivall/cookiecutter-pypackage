@@ -36,7 +36,9 @@ def main(argv):
     # rename the test file
     test_file_name = testsjoin('test_%s.py' % package_name)
     if os.path.isfile(test_file_name):
-        os.rename(test_file_name, test_file_name.replace('.', '_'))
+        base, ext = os.path.splitext(test_file_name)
+        base = base.replace('.', '_')
+        os.rename(test_file_name, base + ext)
 
 
 if __name__ == "__main__":
