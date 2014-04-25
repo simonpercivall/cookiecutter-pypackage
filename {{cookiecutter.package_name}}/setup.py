@@ -21,6 +21,8 @@ def read_version():
         raise ValueError("couldn't find version")
 
 
+# NB: _don't_ add namespace_packages to setup(), it'll break
+#     everything using imp.find_module
 setup(
     name='{{ cookiecutter.package_name }}',
     version=read_version(),
