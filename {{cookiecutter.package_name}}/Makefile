@@ -23,6 +23,9 @@ clean-pyc:
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 
+clean-docs:
+	rm -f docs/{{ cookiecutter.package_name.split('.')[0] }}*.rst
+
 lint:
 	flake8 lib/{{ cookiecutter.package_name }} tests
 

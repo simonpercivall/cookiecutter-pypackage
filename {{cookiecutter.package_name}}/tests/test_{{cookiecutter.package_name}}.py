@@ -13,7 +13,7 @@ import unittest
 from {{ cookiecutter.package_name }} import *
 
 
-class Test{{ cookiecutter.package_name|capitalize }}(unittest.TestCase):
+class Test{{ cookiecutter.package_name.split('.')[-1]|capitalize }}(unittest.TestCase):
 
     def setUp(self):
         pass
