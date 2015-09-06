@@ -1,6 +1,6 @@
-===============================
+{{ '=' * (cookiecutter.project_name|count) }}
 {{ cookiecutter.project_name }}
-===============================
+{{ '=' * (cookiecutter.project_name|count) }}
 
 .. This is an example of how the readme could be decorated with badges.
     .. image:: https://badge.fury.io/py/{{ cookiecutter.package_name }}.png
