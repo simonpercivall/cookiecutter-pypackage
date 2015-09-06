@@ -2,13 +2,7 @@
 Changelog
 =========
 
-Here's the recent changes to {{ cookiecutter.project_name }}.
+{{ cookiecutter.version }} - (in development)
+~~~~~~~~~~~~~
 
-.. changelog::
-    :version: dev
-    :released: Ongoing
-
-    .. change::
-        :tags: docs
-
-        Updated CHANGES.
+* initial release

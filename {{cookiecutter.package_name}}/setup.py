@@ -5,7 +5,7 @@ import re
 from setuptools import setup, find_packages
 
 readme = open('README.rst').read()
-history = open('HISTORY.rst').read().replace('.. :changelog:', '')
+history = open('HISTORY.rst').read()
 
 
 def read_reqs(name):
