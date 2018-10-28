@@ -52,7 +52,7 @@ Submit Feedback
 
 The best way to send feedback is to file an issue 
 {%- if "github.com" in cookiecutter.vcs_url -%}
-at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.package_name }}/issues.
+at {{ cookiecutter.vcs_url }}/issues.
 {%- else -%}to the author.
 {%- endif %}
 
